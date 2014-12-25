@@ -1,0 +1,53 @@
+# Project: Program Klinik Dokter Umum (Kelompok 1)
+# Makefile created by Dev-C++ 5.4.2
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o menu/mpasien.o library/utils.o library/futils.o library/ui.o menu/mpenyakit.o menu/mobat.o menu/mresep.o menu/mcekup.o
+LINKOBJ  = main.o menu/mpasien.o library/utils.o library/futils.o library/ui.o menu/mpenyakit.o menu/mobat.o menu/mresep.o menu/mcekup.o
+LIBS     = -L"C:/Programming/Dev-Cpp/MinGW32/lib" -L"C:/Programming/Dev-Cpp/lib" -static-libstdc++ -static-libgcc  C:/Programming/Dev-Cpp/lib/libconio.a  -pg -g3
+INCS     = -I"C:/Programming/Dev-Cpp/MinGW32/include" -I"C:/Programming/Dev-Cpp/include"
+CXXINCS  = -I"C:/Programming/Dev-Cpp/MinGW32/include" -I"C:/Programming/Dev-Cpp/include"
+BIN      = kelompok1.exe
+CXXFLAGS = $(CXXINCS) -pg -g3
+CFLAGS   = $(INCS) -pg -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+menu/mpasien.o: menu/mpasien.cpp
+	$(CPP) -c menu/mpasien.cpp -o menu/mpasien.o $(CXXFLAGS)
+
+library/utils.o: library/utils.cpp
+	$(CPP) -c library/utils.cpp -o library/utils.o $(CXXFLAGS)
+
+library/futils.o: library/futils.cpp
+	$(CPP) -c library/futils.cpp -o library/futils.o $(CXXFLAGS)
+
+library/ui.o: library/ui.cpp
+	$(CPP) -c library/ui.cpp -o library/ui.o $(CXXFLAGS)
+
+menu/mpenyakit.o: menu/mpenyakit.cpp
+	$(CPP) -c menu/mpenyakit.cpp -o menu/mpenyakit.o $(CXXFLAGS)
+
+menu/mobat.o: menu/mobat.cpp
+	$(CPP) -c menu/mobat.cpp -o menu/mobat.o $(CXXFLAGS)
+
+menu/mresep.o: menu/mresep.cpp
+	$(CPP) -c menu/mresep.cpp -o menu/mresep.o $(CXXFLAGS)
+
+menu/mcekup.o: menu/mcekup.cpp
+	$(CPP) -c menu/mcekup.cpp -o menu/mcekup.o $(CXXFLAGS)
